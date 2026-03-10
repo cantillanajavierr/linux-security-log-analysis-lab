@@ -1,0 +1,19 @@
+Using log file: /var/log/auth.log
+
+===== Failed Authentication Attempts =====
+50
+
+===== Recent Authentication Failures =====
+2026-03-10T11:30:00.017036-07:00 kali sshd-session[6196]: Failed password for student from 192.168.50.64 port 35390 ssh2
+2026-03-10T11:30:14.828661-07:00 kali unix_chkpwd[6277]: password check failed for user (student)
+2026-03-10T11:30:16.704290-07:00 kali sshd-session[6196]: Failed password for student from 192.168.50.64 port 35390 ssh2
+2026-03-10T11:30:17.121055-07:00 kali sshd-session[6196]: PAM 2 more authentication failures; logname= uid=0 euid=0 tty=ssh ruser= rhost=192.168.50.64  user=student
+2026-03-10T11:31:14.744854-07:00 kali sudo:  student : TTY=pts/0 ; PWD=/home/student ; USER=root ; COMMAND=/usr/bin/grep -Ei 'failed|invalid user|authentication|sshd' /var/log/auth.log
+2026-03-10T11:36:55.322910-07:00 kali sudo:  student : TTY=pts/0 ; PWD=/home/student ; USER=root ; COMMAND=/usr/bin/grep -Ei failed|failure|authentication /var/log/auth.log
+2026-03-10T11:52:11.832969-07:00 kali sudo:     root : TTY=pts/2 ; PWD=/home/student/linux-security-log-analysis-lab/scripts ; USER=root ; COMMAND=/usr/bin/grep -Ei failed|failure|authentication /var/log/auth.log
+2026-03-10T11:52:11.845158-07:00 kali sudo:     root : TTY=pts/2 ; PWD=/home/student/linux-security-log-analysis-lab/scripts ; USER=root ; COMMAND=/usr/bin/grep -Ei failed|failure|authentication /var/log/auth.log
+2026-03-10T11:53:27.568322-07:00 kali sudo:     root : TTY=pts/2 ; PWD=/home/student/linux-security-log-analysis-lab/scripts ; USER=root ; COMMAND=/usr/bin/grep -Ei failed|failure|authentication /var/log/auth.log
+2026-03-10T11:53:27.578500-07:00 kali sudo:     root : TTY=pts/2 ; PWD=/home/student/linux-security-log-analysis-lab/scripts ; USER=root ; COMMAND=/usr/bin/grep -Ei failed|failure|authentication /var/log/auth.log
+
+===== Recent Sudo Activity =====
+2026-03-10T11:53:27.588208-07:00 kali sudo: pam_unix(sudo:session): session opened for user root(uid=0) by student(uid=0)
