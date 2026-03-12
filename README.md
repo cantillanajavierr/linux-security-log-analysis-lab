@@ -1,45 +1,78 @@
 # Linux Security Log Analysis Lab
 
-## Project Overview
-This project analyzes Linux authentication logs to identify suspicious activity such as failed authentication attempts and privileged command execution.
+## Objective
 
-The investigation focuses on reviewing authentication-related events, analyzing sudo activity, and automating basic log monitoring with a Bash script.
+This project analyzes Linux authentication logs to identify authentication failures and privileged command activity.
+
+The goal of the investigation is to simulate basic security log analysis performed by a SOC analyst.
+
+---
 
 ## Environment
-- OS: Kali Linux
-- Log file analyzed: `/var/log/auth.log`
-- Tools used:
-  - grep
-  - sort
-  - uniq
-  - wc
-  - Bash
 
-## Investigation Steps
-1. Reviewed available logs in `/var/log`
-2. Identified the authentication log file
-3. Searched for authentication failure events
-4. Counted suspicious authentication-related entries
-5. Investigated sudo activity
-6. Created a Bash script to automate log review
+OS: Kali Linux  
+Log file analyzed: /var/log/auth.log  
+
+Tools used:
+
+- grep
+- sort
+- uniq
+- wc
+- Bash scripting
+
+---
+
+## Investigation Workflow
+
+1. Identify authentication logs inside `/var/log`
+2. Search for authentication failures
+3. Count suspicious events
+4. Review privileged command execution
+5. Automate log investigation using a Bash script
+
+---
+
+## Detection Logic
+
+Authentication failures were detected using the following command:
+
+-> grep -Ei "failed|failure|authentication|pam_unix|su:" /var/log/auth.log
+
+
+This command identifies authentication failures related to login attempts or user switching events.
+
+---
 
 ## Key Findings
-- Authentication failure events were found in the logs.
-- These events were related to failed `su` authentication attempts.
-- Sudo commands executed by the user were successfully logged.
-- The system recorded both authentication activity and privileged command usage.
 
-## Script
-The automation script used in this project is located here:
+During the investigation:
 
-`scripts/detect_auth_activity.sh`
+- 3 authentication failure events were identified
+- These events occurred during failed attempts to switch users using `su`
+- Privileged commands executed using `sudo` were successfully logged
 
-## Screenshots
-Screenshots of the investigation are stored in the `screenshots/` folder.
+---
+
+## Automation Script
+
+The script used to automate log analysis is located in:
+
+ -> scripts/detect_auth_activity.sh
+
+ 
+This script performs:
+
+- authentication failure detection
+- sudo activity monitoring
+- log summary generation
+
+---
 
 ## Skills Demonstrated
+
 - Linux log analysis
 - Authentication monitoring
-- Security event investigation
+- Security investigation
 - Bash scripting
 - Security documentation
